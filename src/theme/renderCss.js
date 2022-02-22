@@ -22,27 +22,26 @@ function renderCSSValue(cssPropName, cssPropValue) {
 function renderCSS(props, currentBreakpoint) {
   if (!props) return '';
 
-  return Object.keys(props)
-    .map((prop) => {
-      const cssPropName = prop
-        .split(/(?=[A-Z])/)
-        .join('-')
-        .toLowerCase();
-      const cssPropValue = props[prop];
-      const isCssPropValueAnObject =
-        Object.prototype.toString.call(cssPropValue) === '[object Object]';
-      const currentCssPropValue = cssPropValue[currentBreakpoint];
+  const propToStyle = (prop) => {
+    const cssPropName = prop
+      .split(/(?=[A-Z])/)
+      .join('-')
+      .toLowerCase();
+    const cssPropValue = props[prop];
+    const isCssPropValueAnObject =
+      Object.prototype.toString.call(cssPropValue) === '[object Object]';
+    const currentCssPropValue = cssPropValue[currentBreakpoint];
 
-      if (currentBreakpoint == 'xs' && !isCssPropValueAnObject) {
-        return renderCSSValue(cssPropName, cssPropValue);
-      }
+    if (currentBreakpoint == 'xs' && !isCssPropValueAnObject) {
+      return renderCSSValue(cssPropName, cssPropValue);
+    }
 
-      if (currentCssPropValue) {
-        return renderCSSValue(cssPropName, currentCssPropValue);
-      }
-    })
-    .filter(Boolean)
-    .join('');
+    if (currentCssPropValue) {
+      return renderCSSValue(cssPropName, currentCssPropValue);
+    }
+  };
+
+  return Object.keys(props).map(propToStyle).filter(Boolean).join('');
 }
 
 export { renderCSS, capitalize };
