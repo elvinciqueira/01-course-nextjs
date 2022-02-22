@@ -8,8 +8,8 @@ import { Text } from '../../components/base-components/Text';
 import { Icon } from '../../components/base-components/Icon';
 import { Input } from '../../components/base-components/Input';
 
-const LOGO_ALURA_URL = 'http://placehold.it/94x44';
-const SIDE_IMAGE_URL = 'http://placehold.it/2878x1640';
+const LOGO_ALURA_URL = '/assets/alura-logo.svg';
+const SIDE_IMAGE_URL = '/assets/alura-cases.png';
 
 function SideImage() {
   return (
