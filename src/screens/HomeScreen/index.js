@@ -8,8 +8,8 @@ import { Text } from '../../components/base-components/Text';
 import { Icon } from '../../components/base-components/Icon';
 import { Input } from '../../components/base-components/Input';
 
-const LOGO_ALURA_URL = '/assets/alura-logo.svg';
-const SIDE_IMAGE_URL = '/assets/alura-cases.png';
+const LOGO_ALURA_URL = '/assets/images/alura-logo.svg';
+const SIDE_IMAGE_URL = '/assets/images/alura-cases.png';
 
 function SideImage() {
   return (
